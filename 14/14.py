@@ -1,4 +1,26 @@
 import string
+numbers = string.digits + string.ascii_uppercase
+for x in numbers[:14]:
+    for y in numbers[:14]:
+        a = int(f'ABCD3{y}2{x}1', 14) + int(f'192{x}9', 14)
+        if a % 107 == 0:
+            print(a // 107)
+            break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # digits = string.digits + string.ascii_uppercase
 # def convert_to(n,base):
