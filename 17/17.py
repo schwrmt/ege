@@ -4,6 +4,37 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''sergey 4 send'''
+# f = open('sergery4file.txt')
+# f = list(map(int,f))
+# max_13 = max([x for x in f if str(x)[-2:] == '13'])
+# cnt = 0
+# max_sum = 0
+# for i in range(len(f)-2):
+#     t = (f[i], f[i+1], f[i+2])
+#     cnt_trehznach = 0
+#     for n in t:
+#         if len(str(n)) == 3:
+#             cnt_trehznach += 1
+#     if cnt_trehznach == 2 and sum(t) <= max_13:
+#         cnt += 1
+#         max_sum = max(max_sum, sum(t))
+# print(cnt, max_sum)
+
 ''' demo '''
 # f = open('demo_2025_17.txt')
 # l = [int(s) for s in f]
@@ -63,16 +94,14 @@
 # cnt=0
 # max_sum=-1
 # for i in range(len(l)-1):
-#     i1 = l[i]
-#     i2 = l[i+1]
-#     if len(str(l[i])) == 2 and len(str(l[i+1])) != 2 \
-#             or len(str(l[i+1])) == 2 and len(str(l[i])) != 2: # ровно одно двузначное
-#         if (l[i] + l[i + 1]) % max_dvuznach == 0:
+#
+#     if (9 < l[i] < 100) != (9 < l[i+1] < 100) and (l[i] + l[i + 1]) % max_dvuznach == 0:
 #             cnt=cnt+1
 #             if max_sum<l[i]+l[i+1]:
 #                 max_sum=l[i]+l[i+1]
 # print(cnt,max_sum)
-#
+# len(str(l[i])) == 2 and len(str(l[i+1])) != 2 \
+#             or len(str(l[i+1])) == 2 and len(str(l[i])) != 2: # ровно одно двузначное
 # if 9<l[i]<100 and (l[i+1]<=9 or l[i+1]>=100) \
 #         or 9<l[i+1]<100 and (l[i]<=9 or l[i]>=100):
 #     if (l[i]+l[i+1]) % max_dvuznach==0:

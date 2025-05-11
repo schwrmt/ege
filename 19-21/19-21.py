@@ -1,5 +1,78 @@
+# +1, *2; (7,S) 1 <= S <= 73; sum >= 81
+def WIN1(n,s):
+    return n + 1 + s >= 81 or n * 2 + s >= 81 or n + s * 2 >= 81
+def FAKE_LOSE1(n,s):
+    return WIN1(n+1,s) or WIN1(n,s+1) or WIN1(n*2,s) or WIN1(n,s*2)
+for s in range(1,73):
+    if FAKE_LOSE1(7,s):
+        print(19, s)
+        break
+def LOSE1(n,s):
+    return not WIN1(n,s) and WIN1(n + 1, s) and WIN1(n, s + 1) and WIN1(n * 2, s) and WIN1(n, s * 2)
+def WIN2(n,s):
+    return not WIN1(n,s) and (LOSE1(n + 1, s) or LOSE1(n, s + 1) or LOSE1(n * 2, s) or LOSE1(n, s * 2))
+for s in range(1,73):
+    if WIN2(7,s):
+        print(20, s)
+def LOSE2(n,s):
+    return not WIN1(n,s) and not WIN2(n,s) and not LOSE1(n,s) and (WIN1(n + 1, s) or WIN2(n + 1, s)) \
+        and (WIN1(n, s + 1) or WIN2(n, s + 1)) and (WIN1(n * 2, s) or WIN2(n * 2, s)) and (WIN1(n, s * 2) or WIN2(n, s * 2))
+for s in range(1,73):
+    if LOSE2(7,s):
+        print(21, s)
 
 
+
+
+
+
+
+
+
+
+
+# def f(s,m):
+#     if s<=87: return m%2==0
+#     if m==0: return 0
+#     h = [f(s-2,m-1),f(s//2,m-1)]
+#     return any(h) if (m-1)%2==0 else all(h)
+#
+# print('19)', [s for s in range(89,1000) if not f(s,1) and f(s,2)])
+# print('20)', [s for s in range(89,1000) if not f(s,1) and f(s,3)])
+# print('21)', [s for s in range(89,1000) if not f(s,2) and f(s,4)])
+
+
+
+
+
+
+
+# def win1(s):
+#  return s - 2 <= 87 or  s // 2 <= 87
+# def lose1(s):
+#     return win1(s-2) and win1(s//2) and not win1(s)
+# for i in range(89,300):
+#     if lose1(i):
+#         print(19,i)
+# #19b
+# def false_lose1(s):
+#     return win1(s-2) or win1(s//2)
+# for i in range(500,88,-1):
+#     if false_lose1(i):
+#         print(i)
+#         break
+# ##20
+# def win2(s):
+#     return (lose1(s-2) or lose1(s//2)) and not win1(s)
+# for i in range(89,1000):
+#     if win2(i):
+#         print(20,i)
+# ##21
+# def lose2(s):
+#     return (win1(s-2) or win2(s-2)) and (win1(s//2) or win2(s//2)) and not win1(s) and not lose1(s)
+# for i in range(89,1000):
+#     if lose2(i):
+#         print(21,i)
 
 
 

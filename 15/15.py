@@ -1,4 +1,9 @@
-
+P = list(range(5,30+1))
+Q = list(range(14,23+1))
+A = list(range(10000))
+for x in range(1000):
+    if ((x in P) == (x in Q)) <= (not (x in A)):
+        print(x)
 
 
 

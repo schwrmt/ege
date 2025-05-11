@@ -1,31 +1,22 @@
 from turtle import *
-#
-# tracer(0)
-# k = 30
-# screensize(3000,3000)
-#
-# x = 0
-# y = 0
-# pd()
-# for _ in range(10):
-#     goto(x-6*k, y+9*k)
-#     goto(x-6*k,y-2*k)
-#     goto(x-3*k,y-6*k)
-# pu()
-#
-# canvas = getcanvas()
-# cnt = 0
-# for x in range(-100,100):
-#     for y in range(-100,100):
-#         if canvas.find_overlapping(x*k,y*k,x*k,y*k) != ():
-#             cnt += 1
-# print(cnt)
-#
-# for x in range(-10,10):
-#     for y in range(-10,10):
-#         goto(x*k,y*k)
-#         dot(3, 'red')
-# done()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 '''var14'''
 # left(90)
@@ -56,7 +47,7 @@ from turtle import *
 # screensize(3000,3000)
 # left(90)
 # k = 60
-# tracer(0)
+# speed(3000) # для заливки, tracer(0) - чтоб быстро нарисовались точки
 #
 # right(30)
 # begin_fill()
@@ -81,42 +72,42 @@ from turtle import *
 # done()
 
 ''' Пробник 15 '''
-# tracer(0)
-# screensize(3000,3000)
-# pendown()
-# left(90)
-# k = 10
-# begin_fill()
-# for _ in range(6):
-#     forward(31*k)
-#     right(60)
-# end_fill()
-#
-# penup()
-#
-# canvas = getcanvas() # k > 60
-# cnt = 0
-# for x in range(-200, 200):
-#     for y in range(-200, 200):
-#         if canvas.find_overlapping(x*k, y*k, x*k, y*k) == (5,):
-#             cnt += 1
-# print(cnt)
-#
-# dots = 0
-# for x in range(-20,60):
-#     for y in range(-20,60):
-#         if  y < 1/3**0.5*x + 31 and y < -1/3**0.5*x + 62 and y > 31:
-#             dots += 2
-# for x in range(-20,60):
-#     for y in range(-20,60):
-#         if x > 0 and x < 54 and y >= 0 and y <= 31:
-#             dots += 1
-# print(dots)
-# for x in range(-20,60):
-#     for y in range(-20,60):
-#         goto(x*k,y*k)
-#         dot(2)
-# done()
+tracer(0)
+screensize(3000,3000)
+pendown()
+left(90)
+k = 10
+begin_fill()
+for _ in range(6):
+    forward(31*k)
+    right(60)
+end_fill()
+
+penup()
+
+canvas = getcanvas() # k > 60
+cnt = 0
+for x in range(-200, 200):
+    for y in range(-200, 200):
+        if canvas.find_overlapping(x*k, y*k, x*k, y*k) == (5,):
+            cnt += 1
+print(cnt)
+
+dots = 0
+for x in range(-20,60):
+    for y in range(-20,60):
+        if  y < 1/3**0.5*x + 31 and y < -1/3**0.5*x + 62 and y > 31:
+            dots += 2
+for x in range(-20,60):
+    for y in range(-20,60):
+        if x > 0 and x < 54 and y >= 0 and y <= 31:
+            dots += 1
+print(dots)
+for x in range(-20,60):
+    for y in range(-20,60):
+        goto(x*k,y*k)
+        dot(2, 'red')
+done()
 
 ''' B99881 '''
 # left(90)

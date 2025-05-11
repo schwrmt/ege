@@ -1,17 +1,3 @@
-import math
-
-import math
-import sys
-sys.setrecursionlimit(5000)
-
-def F(n):
-    if n >= 5000:
-        return math.factorial(n)
-    if 1 <= n < 5000:
-        return F(n + 1) // (n + 1)
-print(F(12) / F(4))
-
-
 
 
 

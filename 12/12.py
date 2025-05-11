@@ -1,19 +1,4 @@
-# for i in range(121,500):
-#     x = '0' + i * '1' + i * '2' + '0'
-#     while not ('00' in x):
-#         x = x.replace('02', '101',1)
-#         x = x.replace('11','2',1)
-#         x = x.replace('12','21',1)
-#         x = x.replace('010', '00',1)
-#     sum_x = sum(map(int,x))
-#     isPrime = True
-#     for j in range(2, int(sum_x**0.5)):
-#         if sum_x % j == 0:
-#             isPrime = False
-#             break
-#     if isPrime:
-#         print(i)
-#         break
+
 
 
 
@@ -87,7 +72,7 @@
 #         sum_s //= 12
 #     return bool(res.count(3))
 #
-# for n in range(30, 10000):
+# for n in range(57, 10000):
 #     s = '0' + n * '6'
 #     while '06' in s or '556' in s or '666' in s:
 #         if '06' in s:
@@ -96,9 +81,15 @@
 #             s = s.replace('566','60',1)
 #         if '666' in s:
 #             s = s.replace('666','5',1)
-#     if check_s(s):
-#         print(n)
-#         break
+#     int_s = sum(map(int,s))
+#
+#
+#     while int_s > 0:
+#         if int_s % 12 == 3:
+#             print(n)
+#             break
+#         int_s //= 12
+
 
 """ №12 """
 # a = 96 * '7' + 24 * '4'
@@ -191,6 +182,19 @@
 #     if x.count('4') == n / 18:
 #         print(n)
 #         break
+
+'''ДЗ 3'''
+# for n in range(3,10000+1):
+#     x = '5' + n * '2'
+#     while '52' in x or '2222' in x or '1122' in x:
+#         if '52' in x:
+#             x = x.replace('52','11',1)
+#         if '2222' in x:
+#             x = x.replace('2222','5',1)
+#         if '1122' in x:
+#             x = x.replace('1122','25',1)
+#     if sum(map(int,x)) == 64:
+#         print(n, sum(map(int,x)))
 
 """ДЗ 4"""
 # maxSum = 0

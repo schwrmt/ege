@@ -1,5 +1,18 @@
 from ipaddress import *
-import math
+for A in range(256):
+    net = ip_network(f'32.0.{A}.5/20',0)
+    for ip in net:
+        b_ip = bin(int(ip))[2:]
+        while len(b_ip) < 32:
+            b_ip = '0' + b_ip
+        if b_ip[:16].count('1') > b_ip[16:].count('1'):
+            break
+    else:
+        print(A)
+        break
+
+
+
 
 '''ДЗ 6'''
 # net = ip_network('151.192.0.0/255.224.0.0')
@@ -90,11 +103,22 @@ import math
 # print(cnt)
 
 ''' dosrok '''
-# print(int('11011111',2))
 # net = ip_network(f'143.168.72.213/255.255.255.240',0)
-# print(net)
 # for ip in net:
 #     print(ip)
+
+''' 15var '''
+# for A in range(256):
+#     flag = True
+#     net = ip_network(f'32.0.{A}.5/20',0)
+#     for ip in net:
+#         b = bin(int(ip))[2:]
+#         if b[:16].count('1') > b[16:].count('1'):
+#             flag = False
+#             break
+#     if flag:
+#         print(A)
+#         break
 
 ''' 14var '''
 # for mask in range(16, 24 + 1):
@@ -119,7 +143,22 @@ import math
 #         cnt += 1
 # print(cnt)
 
+'''6B2DF4'''
+# from ipaddress import ip_network
+#
+# net = ip_network('122.159.136.144/255.255.255.248',0)
+# cnt = 0
+# for ip in net:
+#     b_ip = bin(int(ip))[2:]
+#     if b_ip.count('1') % 4 != 0:
+#         cnt += 1
+# print(cnt)
 
+
+    # b_ip = bin(int(ip))[2:]
+    # while len(b_ip) < 32:
+    #     b_ip = '0' + b_ip
+    # b_ip = b_ip[:8] + '.' + b_ip[8:16] + '.' + b_ip[16:24] + '.' + b_ip[24:]
 
 
 

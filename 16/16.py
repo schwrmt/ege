@@ -1,9 +1,17 @@
-from functools import lru_cache
 
 
 
 
-
+'''dosrok_2025'''
+# import sys
+#
+# sys.setrecursionlimit(3000)
+# def F(n):
+#     if n <= 5:
+#         return 1
+#     if n > 5:
+#         return n+ F(n-2)
+# print(F(2126)-F(2122))
 
 
 # 15 вариант
