@@ -1,51 +1,95 @@
-# +1, *2; (7,S) 1 <= S <= 73; sum >= 81
-def WIN1(n,s):
-    return n + 1 + s >= 81 or n * 2 + s >= 81 or n + s * 2 >= 81
-def FAKE_LOSE1(n,s):
-    return WIN1(n+1,s) or WIN1(n,s+1) or WIN1(n*2,s) or WIN1(n,s*2)
-for s in range(1,73):
-    if FAKE_LOSE1(7,s):
-        print(19, s)
-        break
-def LOSE1(n,s):
-    return not WIN1(n,s) and WIN1(n + 1, s) and WIN1(n, s + 1) and WIN1(n * 2, s) and WIN1(n, s * 2)
-def WIN2(n,s):
-    return not WIN1(n,s) and (LOSE1(n + 1, s) or LOSE1(n, s + 1) or LOSE1(n * 2, s) or LOSE1(n, s * 2))
-for s in range(1,73):
-    if WIN2(7,s):
-        print(20, s)
-def LOSE2(n,s):
-    return not WIN1(n,s) and not WIN2(n,s) and not LOSE1(n,s) and (WIN1(n + 1, s) or WIN2(n + 1, s)) \
-        and (WIN1(n, s + 1) or WIN2(n, s + 1)) and (WIN1(n * 2, s) or WIN2(n * 2, s)) and (WIN1(n, s * 2) or WIN2(n, s * 2))
-for s in range(1,73):
-    if LOSE2(7,s):
-        print(21, s)
-
-
-
-
-
-
-
-
-
-
-
-# def f(s,m):
-#     if s<=87: return m%2==0
-#     if m==0: return 0
-#     h = [f(s-2,m-1),f(s//2,m-1)]
-#     return any(h) if (m-1)%2==0 else all(h)
+# 87-, -2, //2, 88+
+# def WIN1(n):
+#     return (n - 2) <= 87 or (n // 2) <= 87
+# def LOSS1(n):
+#     return WIN1(n - 2) and WIN1(n // 2) and not WIN1(n)
+# for n in range(88,200):
+#     if LOSS1(n):
+#         print(19, n)
+#         break
+# def WIN2(n):
+#     return not WIN1(n) and (LOSS1(n - 2) or LOSS1(n // 2))
+# cnt = 0
+# for n in range(88,200):
+#     if WIN2(n) and cnt < 2:
+#         print(20, n)
+# def LOSS2(n):
+#     return not WIN1(n) and not LOSS1(n) and not WIN2(n) and (WIN1(n-2) or WIN2(n-2)) and (WIN1(n//2) or WIN2(n//2))
 #
-# print('19)', [s for s in range(89,1000) if not f(s,1) and f(s,2)])
-# print('20)', [s for s in range(89,1000) if not f(s,1) and f(s,3)])
-# print('21)', [s for s in range(89,1000) if not f(s,2) and f(s,4)])
+# for n in range(88,200):
+#     if LOSS2(n):
+#         print(21, n)
+#         break
 
 
 
+'''20var'''
+# +2 *2 >=122 (3, 1<=s<=117)
+# def WIN1(n,s):
+#     return (n + 2 + s >= 122 or n * 2 + s >= 122 or n + s * 2 >= 122) and  n + s < 122
+# def FAKE_LOSE1(n,s):
+#     return WIN1(n+2,s) or WIN1(n,s+2) or WIN1(n*2, s) or WIN1(n,s*2)
+# for s in range(1,117+1):
+#     if FAKE_LOSE1(3,s):
+#         print(19,s)
+#         break
+# def LOSE1(n,s):
+#     return not WIN1(n,s) and WIN1(n+2,s) and WIN1(n,s+2) and WIN1(n*2, s) and WIN1(n,s*2)
+# def WIN2(n,s):
+#     return not WIN1(n,s) and (LOSE1(n+2,s) or LOSE1(n,s+2) or LOSE1(n*2, s) or LOSE1(n,s*2))
+# for s in range(1,117+1):
+#     if WIN2(3,s):
+#         print(20,s)
+# def LOSE2(n,s):
+#     return not LOSE1(n,s) and not WIN1(n,s) and not WIN2(n,s) and (WIN1(n+2,s) or WIN2(n+2,s)) and (WIN1(n*2,s) or WIN2(n*2,s)) \
+# and (WIN1(n,s+2) or WIN2(n,s+2)) and (WIN1(n,s*2) or WIN2(n,s*2))
+# for s in range(1,117+1):
+#     if LOSE2(3,s):
+#         print(21,s)
+#         break
 
+''''ege24_1'''
+# def WIN1(n,s):
+#     return (n + 1 + s >= 65 or n * 3 + s >= 65 or n + 3 * s >= 65) and n + s < 65
+# def FAKE_LOSE1(n,s):
+#     return WIN1(n+1, s) or WIN1(n, s+1) or WIN1(n, s*3) or WIN1(n*3, s)
+# for s in range(1,58+1):
+#     if FAKE_LOSE1(6,s):
+#         print(19, s)
+#         break
+# def LOSE1(n,s):
+#     return not WIN1(n,s) and WIN1(n+1,s) and WIN1(n,s+1) and WIN1(n*3,s) and WIN1(n,s*3)
+# def WIN2(n,s):
+#     return not WIN1(n,s) and (LOSE1(n+1,s) or LOSE1(n,s+1) or LOSE1(n*3,s) or LOSE1(n,s*3))
+# for s in range(1,58+1):
+#     if WIN2(6,s):
+#         print(20, s)
+# def LOSE2(n,s):
+#     return not LOSE1(n,s) and not WIN1(n,s) and not WIN2(n,s) and (WIN2(n+1,s) or WIN1(n+1,s)) and (WIN2(n,s+1) or WIN1(n,s+1)) \
+#         and (WIN2(n*3,s) or WIN1(n*3,s)) and (WIN2(n,s*3) or WIN1(n,s*3))
+# for s in range(1,58+1):
+#     if LOSE2(6,s):
+#         print(21, s)
 
-
+'''var4'''
+# # -3, -4, -7
+# def WIN1(n):
+#     return (n - 3 <= 34 or n - 7 <= 34 or n // 4 <= 34) and n > 34
+# def LOSE1(n):
+#     return not WIN1(n) and WIN1(n-3) and WIN1(n-7) and WIN1(n//4)
+# for n in range(35, 1000):
+#     if LOSE1(n):
+#         print(19, n)
+# def WIN2(n):
+#     return not WIN1(n) and (LOSE1(n-3) or LOSE1(n-7) or LOSE1(n//4))
+# for n in range(35,1000):
+#     if WIN2(n):
+#         print(20,n)
+# def LOSE2(n):
+#     return not WIN1(n) and not WIN2(n) and not LOSE1(n) and (WIN2(n-3) or WIN1(n-1)) and (WIN2(n-7) or WIN1(n-7)) and (WIN2(n//4) or WIN1(n//4))
+# for n in range(35,1000):
+#     if LOSE2(n):
+#         print(21,n)
 
 # def win1(s):
 #  return s - 2 <= 87 or  s // 2 <= 87
@@ -166,7 +210,7 @@ for s in range(1,73):
 #     if LOSS2(n):
 #         print(21, n)
 #         break
-#
+
 # from functools import lru_cache
 # import sys
 # sys.setrecursionlimit(10000)

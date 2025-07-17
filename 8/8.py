@@ -1,16 +1,33 @@
-from itertools import *
+from itertools import product
+'''EGKR190425'''
+# n = 1
+# for x in product('АБДЕОП',repeat=6):
+#     x = ''.join(x)
+#     if x[0] == 'О' and n % 2 == 0 and len(set(x)) == 6:
+#         print(n,x)
+#     n += 1
 
-
-
-
-
-
-
-
-
-
-
-
+'''openVar2025'''
+# ban = []
+# for odd1 in '13579':
+#     for odd2 in '13579':
+#         ban.append(odd1 + odd2)
+# for evan1 in '02468':
+#     for evan2 in '02468':
+#         ban.append(evan1 + evan2)
+# cnt = 0
+# for x in product('0123456789', repeat=4):
+#     x = ''.join(x)
+#     if x[0] == '0':
+#         continue
+#     have_banned_comb = False
+#     for b in ban:
+#         if x.count(b) != 0:
+#             have_banned_comb = True
+#             break
+#     if len(set(x)) == 4 and not have_banned_comb:
+#         cnt+= 1
+# print(cnt)
 
 '''dosrok'''
 # cnt=0
@@ -33,7 +50,10 @@ from itertools import *
 # for x in product('01234',repeat=3):
 #     if x[0] == '0':
 #         continue
-#     if int(x[0]) >= int(x[1]) >= int(x[2]):
+#     for i in range(len(x)-1):
+#         if int(x[i]) < int(x[i+1]):
+#             break
+#     else:
 #         cnt += 1
 # print(cnt)
 
@@ -45,6 +65,84 @@ from itertools import *
 #         print(n, x)
 #         break
 #     n += 1
+
+'''var8'''
+# ban = []
+# for x in '1357':
+#     ban.append(x + '4')
+#     ban.append('4' + x)
+# cnt = 0
+# for x in product('01234567',repeat=5):
+#     x = ''.join(x)
+#     if x[0] == '0':
+#         continue
+#     if x.count('4') == 2:
+#         for b in ban:
+#             if x.count(b):
+#                 break
+#         else:
+#             cnt += 1
+# print(cnt)
+
+'''var7'''
+# cnt = 0
+# n = 0
+# for x in product('АГИЛМНОФ', repeat=5):
+#     x = ''.join(x)
+#     n += 1
+#     if n % 2 != 0 and x[0] != 'Н' and x.count('О') <= 1:
+#         cnt += 1
+# print(cnt)
+
+'''var5'''
+# from itertools import product
+# n = 0
+# cnt_answ = 0
+# for x in product('АВИОРТФ', repeat = 6):
+#     n += 1
+#     if n % 2 == 0 and x[0] != 'О' and x.count('Р') == 2:
+#         cnt_answ += 1
+# print(cnt_answ)
+
+'''var4'''
+# cnt = 0
+# for x in product('123456', repeat=5):
+#     x = ''.join(x)
+#     cnt_odds = x.count('1') + x.count('3') + x.count('5')
+#     cnt_evens = x.count('2') + x.count('4') + x.count('6')
+#     if x.count('3') == 1 and (cnt_odds >= cnt_evens):
+#         cnt += 1
+# print(cnt)
+
+'''var3'''
+# cnt = 0
+# for x in product('123456', repeat=4):
+#     x = ''.join(x)
+#     cnt_odds = x.count('1') + x.count('3') + x.count('5')
+#     cnt_evens = x.count('2') + x.count('4') + x.count('6')
+#     if x.count('3') == 1 and (cnt_odds >= cnt_evens):
+#         cnt += 1
+# print(cnt)
+
+'''var1'''
+# from itertools import product
+# ban = []
+# for n in '135':
+#     ban.append(f'0{n}')
+#     ban.append(f'{n}0')
+# cnt =0
+# for x in product('012345', repeat=6):
+#     x = ''.join(x)
+#     if x[0] == '0':
+#         continue
+#
+#     if x.count('0') == 1:
+#         for b in ban:
+#             if x.count(b) != 0:
+#                 break
+#         else:
+#             cnt += 1
+# print(cnt)
 
 '''E51935'''
 # n = 0

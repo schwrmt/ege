@@ -1,15 +1,3 @@
-P = list(range(5,30+1))
-Q = list(range(14,23+1))
-A = list(range(10000))
-for x in range(1000):
-    if ((x in P) == (x in Q)) <= (not (x in A)):
-        print(x)
-
-
-
-
-
-
 
 
 
@@ -40,6 +28,69 @@ for x in range(1000):
 #     if all( not((Triangle(x, 12, 20) == (not(max(x, 5) > 28))) and Triangle(x, A, 3)) for x in range(1,1000)):
 #         print(A)
 #         break
+
+'''var3'''
+# B = list(range(200,300+1))
+# for A in range(1,1000):
+#     for x in range(1,10000):
+#         f = (x % A == 0) or ((x in B) <= (not (x % 77 == 0)))
+#         if not f:
+#             break
+#     else:
+#         print(A)
+
+'''var4'''
+# B = list(range(200,250+1))
+# for A in range(1000,0,-1):
+#     for x in range(1,10000):
+#         f = (x % A == 0) or ((x in B) <= (not (x % 55 == 0)))
+#         if f == False:
+#             break
+#     else:
+#         print(A)
+#         break
+
+'''var5'''
+# for A in range(0,1000):
+#     flag_A_norm = True
+#     for x in range(0,1000):
+#         for y in range(0,1000):
+#             F = (4 * x + y < A) or (x < y) or (22 <= x)
+#             if F == 0:
+#                 flag_A_norm = False
+#                 break
+#         if flag_A_norm == False:
+#             break
+#     if flag_A_norm:
+#         print(A)
+#         break
+
+'''var6'''
+# for A in range(0,1000):
+#     for x in range(1000):
+#         for y in range(1000):
+#             f = (x**2 + y**2 > 128) or (y < -x + A)
+#             if not f:
+#                 break
+#         else:
+#             continue
+#         break
+#     else:
+#         print(A)
+#         break
+
+'''12var'''
+# def Triangle(n,m,k):
+#     return max(n,m,k) < sum([n,m,k]) - max(n,m,k)
+# for A in range(1000,1,-1):
+#     for x in range(1,1000):
+#         F = not((Triangle(x,12,20) == (not(max(x,5) > 28))) and Triangle(x,A,3))
+#         if not F:
+#             break
+#     else:
+#         print(A)
+#         break
+
 
 # def Del(n, m):
 #     return n % m == 0
@@ -394,3 +445,15 @@ for x in range(1000):
 #         count += 1
 #
 # print(count)
+
+'''var2'''
+# def Del(n,m):
+#     return n % m == 0
+# for A in range(1,1000):
+#     for x in range(1,1000):
+#         f = (Del(x,14) <= (not Del(x,4))) or (x + A >= 200)
+#         if not f:
+#             break
+#     else:
+#         print(A)
+#         break

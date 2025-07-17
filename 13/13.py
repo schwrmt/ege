@@ -1,18 +1,51 @@
-from ipaddress import *
-for A in range(256):
-    net = ip_network(f'32.0.{A}.5/20',0)
-    for ip in net:
-        b_ip = bin(int(ip))[2:]
-        while len(b_ip) < 32:
-            b_ip = '0' + b_ip
-        if b_ip[:16].count('1') > b_ip[16:].count('1'):
-            break
-    else:
-        print(A)
-        break
+from ipaddress import ip_network
+net = ip_network('143.168.72.213/255.255.255.240',0)
+for ip in net:
+    print(ip)
+# print('.'.join([bin(x)[2:].zfill(8) for x in [44,44,224,0]]))
+'''var20'''
+# for mask in range(1,32+1):
+#     net = ip_network(f'44.44.229.28/{mask}',0)
+#     net_address = str(net.network_address)
+#     if net_address == '44.44.224.0':
+#         print(mask)
 
+'''var8'''
+# cnt = 0
+# for ip in ip_network('253.112.169.12/255.255.254.0',0):
+#     b_ip = bin(int(ip))[2:]
+#     if b_ip[-16:].count('1') >= b_ip[:16].count('1'):
+#         a = [b_ip[:8], b_ip[8:16], b_ip[16:24], b_ip[24:32]]
+#         cnt += 1
+# print(cnt)
 
+'''19748'''
+# from ipaddress import ip_network
+# min_cnt = 10000
+# for mask in range(10,23+1):
+#     net = ip_network(f'157.220.185.237/{mask}',0)
+#     cnt = 0
+#     for ip in net:
+#         b_ip = bin(int(ip))[2:]
+#         if b_ip.count('1') == 15:
+#             cnt += 1
+#     if min_cnt > cnt:
+#         min_cnt = cnt
+# print(min_cnt)
 
+'''EGE_24_3'''
+# from math import comb
+# from ipaddress import ip_network
+# print(comb(20,0) + comb(20,5) + comb(20,10) + comb(20,15) + comb(20,20))
+# net = ip_network('112.160.0.0/255.240.0.0',0)
+# cnt = 0
+# for ip in net:
+#     b_ip = bin(int(ip))[2:]
+#     # while len(b_ip) != 32:
+#     #     b_ip = '0' + b_ip
+#     if b_ip.count('1') % 5 == 0:
+#         cnt += 1
+# print(cnt)
 
 '''ДЗ 6'''
 # net = ip_network('151.192.0.0/255.224.0.0')
@@ -71,27 +104,38 @@ for A in range(256):
 #         break
 
 
-# for mask in range(33):
-#     net = ip_network(f'116.109.66.45/{mask}', 0)
-#     if str(net.network_address) == '116.109.64.0':
-#         print(net)
 
-# for a in range(256):
-#     net=ip_network(f'32.0.{a}.5/255.255.240.0', 0)
-#     for ip in net:
-#         if f'{ip:b}'[0:16].count('1') > f'{ip:b}'[16:32].count('1'):
-#             break
-#     else:
-#         print(a)
-#         break
+'''var1'''
+# from ipaddress import *
+# net = ip_network('204.16.168.0/255.255.248.0', 0)
+# cnt = 0
+# for ip in net:
+#     b_ip = bin(int(ip))[2:]
+#     if b_ip.count('1') % 5 != 0:
+#         cnt += 1
+# print(cnt)
 
-# for mask in range(33):
-#     flag = True
-#     net = ip_network(f'116.109.66.45/{mask}', 0)
-#     if str(net.network_address) == '116.109.64.0':
-#         print(mask)
-# print(int('11111100',2))
+'''var2'''
+# from ipaddress import *
+# net = ip_network('200.33.100.0/255.255.248.0', 0)
+# cnt = 0
+# for ip in net:
+#     b_ip = bin(int(ip))[2:]
+#     while len(b_ip) != 32:
+#         b_ip = '0' + b_ip
+#     if b_ip.count('1') % 7 != 0:
+#         cnt += 1
+# print(cnt)
 
+'''var5'''
+# from ipaddress import *
+# cnt = 0
+# net = ip_network('142.108.56.118/255.255.255.240', 0)
+# for ip in net:
+#     b_ip = bin(int(ip))[2::]
+#     if b_ip[:16].count('1') < b_ip[-16:].count('1'):
+#         cnt += 1
+# print(cnt)
 
 '''demo'''
 # from ipaddress import ip_network
@@ -132,6 +176,18 @@ for A in range(256):
 #     if flag:
 #         print(mask)
 #         break
+
+'''var7'''
+# from ipaddress import *
+# cnt = 0
+# net = ip_network('23.140.159.160/255.255.252.0',0)
+# for ip in net:
+#     b_ip = bin(int(ip))[2::]
+#     while len(b_ip) != 32:
+#         b_ip = '0' + b_ip
+#     if b_ip[:-16].count('1') >= b_ip[16:].count('1'):
+#         cnt += 1
+# print(cnt)
 
 '''580BC7'''
 # from ipaddress import ip_network

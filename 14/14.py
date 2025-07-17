@@ -1,46 +1,44 @@
+# import string
+# for x in string.digits + string.ascii_uppercase[:16]:
+#     a = int(f'967{x}6',26) + int(f'5{x}88A{x}2',26)
+#     if a % 25 == 0:
+#         print(a // 25)
+
+
+'''Dosrok2024'''
 import string
-numbers = string.digits + string.ascii_uppercase
-for x in numbers[:14]:
-    for y in numbers[:14]:
-        a = int(f'ABCD3{y}2{x}1', 14) + int(f'192{x}9', 14)
-        if a % 107 == 0:
-            print(a // 107)
-            break
+from string import digits
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# digits = string.digits + string.ascii_uppercase
-# def convert_to(n,base):
-#     result = ''
-#     numbers = string.digits + string.ascii_uppercase
-#     while n > 0:
-#         result += numbers[n % base]
-#         n //= base
-#     return result[::-1]
-# a = 16 ** 44 * 16 ** 30 - (32**5 * (8**40 - 8**32) * (16**17 - 32**4))
-# a_16 = convert_to(a, 16)
-# a_16 = a_16.replace('E', '1')
+# import string
 #
-# print(a_16)
-#
-# a_16 = a_16[:-5] + a_16[-4:]
-# print(a_16)
-# print(a_16.count('1'))
+# for x in string.digits + string.ascii_uppercase[:17]:
+#     a = int(f'123{x}24',27) + int(f'135{x}78',27)
+#     if a % 26 == 0:
+#         print(a//26)
 
+'''EGKR190425'''
+# max_cnt_0 = 0
+# x_pri_max_cnt = -1
+# for x in range(1, 3000+1):
+#     a = 4 ** 210 + 4 ** 110 - x
+#     cnt_0 = 0
+#     while a > 0:
+#         if a % 4 == 0:
+#             cnt_0 += 1
+#         a //=4
+#     if cnt_0 >= max_cnt_0:
+#         max_cnt_0 = cnt_0
+#         x_pri_max_cnt = x
+# print(x_pri_max_cnt)
 
+'''dosrok2024'''
+# a = 3 * 2187**2020 + 3 * 729 ** 2021 - 2 * 81 ** 2022 + 27 ** 2023 - 4 * 3 ** 2024 - 2029
+# cnt = 0
+# while a > 0:
+#     if a % 27 > 9:
+#         cnt += 1
+#     a //= 27
+# print(cnt)
 
 ''' dosrok '''
 # digits = string.digits + string.ascii_uppercase
@@ -49,6 +47,44 @@ for x in numbers[:14]:
 #     if a % 20 == 0:
 #         print( a // 20)
 #         break
+
+'''var1'''
+# for x in range(5769, 0, -1):
+#     a = 9 ** 2025 + 9 ** 1000 - x
+#     cnt_0 = 0
+#     while a > 0:
+#         if a % 9 == 0:
+#             cnt_0 += 1
+#         a //= 9
+#     print(cnt_0)
+#     if cnt_0 == 1026:
+#         print(x)
+#         break
+
+'''var5'''
+# import string
+# for x in string.digits + string.ascii_uppercase[:13]:
+#     a = int('1' +x+'1' +x+'1'+x+'1'+x+'1',23) + int(f'20{x}24',23) + int(f'1{x}235',23)
+#     if a % 22 == 0:
+#         print(a // 22)
+
+'''var12'''
+# a = 1331**650 - 55*121**610 + 77 *  11 ** 510 - 3 * 11 ** 100 - 221
+# def covert_to(n,cc):
+#     digits = string.digits + string.ascii_uppercase
+#     res = ''
+#     while n > 0:
+#         res = str(digits[n % cc]) + res
+#         n //= cc
+#     return res
+# print(covert_to(a,11).count('A'))
+# cnt_A = 0
+# while a > 0:
+#     if a % 11 == 10:
+#         cnt_A += 1
+#     a //= 11
+# print(cnt_A)
+
 
 ''' var15 '''
 # a = 2 * 3**2022 + 5 * 3**1800 + 3**1001 + 4 * 3**1000 + 3

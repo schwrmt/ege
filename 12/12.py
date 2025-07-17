@@ -1,6 +1,34 @@
+for n in range(3,10000+1):
+    s = '3' + n * '5'
+    while '25' in s or '355' in s or '555' in s:
+        if '25' in s:
+            s = s.replace('25','5',1)
+        if '355' in s:
+            s = s.replace('355','52',1)
+        if '555' in s:
+            s = s.replace('555','3',1)
+    sm = sum([int(x) for x in  s])
+    if sm == 25:
+        print(n)
+        break
 
-
-
+'''n pri max sum'''
+# max_sum = -1
+# n_pri_max_sum = -1
+# for n in range(3,10000+1):
+#     a = '1' + n * '8'
+#     while '18' in a or '388' in a or '888' in a:
+#         if '18' in a:
+#             a = a.replace('18','8',1)
+#         if '388' in a:
+#             a = a.replace('388','81', 1)
+#         if '888' in a:
+#             a = a.replace('888','3', 1)
+#     sum_digits = sum(map(int,a))
+#     if max_sum <= sum_digits:
+#         max_sum = sum_digits
+#         n_pri_max_sum = n
+# print(n_pri_max_sum)
 
 """ №1 """
 # a = '3'
@@ -90,7 +118,6 @@
 #             break
 #         int_s //= 12
 
-
 """ №12 """
 # a = 96 * '7' + 24 * '4'
 # while '4444' in a or '7777' in a:
@@ -135,6 +162,24 @@
 #     else:
 #         a = a.replace('1','000',1)
 # print(a.count('0'))
+
+'''var20'''
+# for n in range(0,1000):
+#     a = '>' + 11 * '1' + n * '2' + 11 * '3'
+#     while '>1' in a or '>2' in a or '>3' in a:
+#         if '>1' in a:
+#             a = a.replace('>1', '222>', 1)
+#         if '>2' in a:
+#             a = a.replace('>2', '3>', 1)
+#         if '>3' in a:
+#             a = a.replace('>3', '1>', 1)
+#     sm = sum(map(int, a[:-1]))
+#     for d in range(2, sm):
+#         if sm % d == 0:
+#             break
+#     else:
+#         print(n)
+#         break
 
 """ var15 """
 # a = 65*'1'

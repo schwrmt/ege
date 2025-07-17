@@ -1,5 +1,78 @@
+'''DV2'''
+# def conv_to_3(n):
+#     res = ''
+#     while n > 0:
+#         res = str(n%3) + res
+#         n //= 3
+#     return res
+# def R(n):
+#     r = conv_to_3(n)
+#     if n % 3 == 0:
+#         r = '1' + r + '02'
+#     else:
+#         r += conv_to_3((n % 3) * 4)
+#     return int(r,3)
+# for n in range(1, 1000):
+#     if R(n) > 135:
+#         print(n)
+#         break
+'''DV1'''
+# def conv_to_3(n):
+#     res = ''
+#     while n > 0:
+#         res = str(n%3) + res
+#         n //= 3
+#     return res
+# def R(n):
+#     r = conv_to_3(n)
+#     if n % 3 == 0:
+#         r += r[-2:]
+#     if n % 3 != 0:
+#         r += conv_to_3((n % 3) * 5)
+#     return int(r,3)
+# for n in range(1,1000):
+#     if R(n) >= 290:
+#         print(n)
+#         break
 
+'''21473'''
+# def convert_to_3(n):
+#     res = ''
+#     while n > 0:
+#         res = str(n%3) + res
+#         n //= 3
+#     return res
+# def R(n):
+#     r = convert_to_3(n)
+#     sm = sum(map(int,r))
+#     if sm % 4 == 0:
+#         r = r.replace('2', '*').replace('1', '2').replace('*','1')
+#         r = '10' + r
+#     else:
+#         r += '20'
+#         r = r[0] + '02' + r[3:]
+#     return int(r,3)
+# minR = 1000000
+# n_pri_minR = -1
+# for n in range(1,10000):
+#     r = R(n)
+#     if r > 302 and r <= minR:
+#         minR = r
+#         n_pri_minR = n
+# print(n_pri_minR)
 
+'''ege2024_3'''
+# def R(n):
+#     r = bin(n)[2:]
+#     r += str(r.count('1') % 2)
+#     r += str(r.count('1') % 2)
+#     return int(r,2)
+# min_R = 10000000
+# for n in range(1,1000):
+#     r = R(n)
+#     if 75 < r < min_R:
+#         min_R = r
+# print(min_R)
 
 ''' dosrok '''
 # def R(n):
@@ -16,19 +89,33 @@
 #         print(n)
 #         break
 
-' var15 '
-def R(n):
-    proizved = 1
-    for c in str(n):
-        proizved *= int(c)
-    summ = sum(map(int, str(n)))
-    if summ > proizved:
-        return int(str(summ) + str(proizved))
-    return int(str(proizved) + str(summ))
-for n in range(1000,1,-1): # т.к. трёхзначное число
-    if R(n) == 33621:
-        print(n)
-        break
+'''var18'''
+# def R(n):
+#     r = n - n % 4
+#     r = bin(r)[2:]
+#     r += str(r.count('1') % 2)
+#     r += str(r.count('1') % 2)
+#     return int(r,2)
+# min_R = 1000000000
+# for n in range(1,1000):
+#     r = R(n)
+#     if 100 < r < min_R:
+#         min_R = r
+# print(min_R)
+
+''' var15 '''
+# def R(n):
+#     proizved = 1
+#     for c in str(n):
+#         proizved *= int(c)
+#     summ = sum(map(int, str(n)))
+#     if summ > proizved:
+#         return int(str(summ) + str(proizved))
+#     return int(str(proizved) + str(summ))
+# for n in range(1000,1,-1): # т.к. трёхзначное число
+#     if R(n) == 33621:
+#         print(n)
+#         break
 
 ''' var14 '''
 # for n in range(999,99,-1):
@@ -40,6 +127,109 @@ for n in range(1000,1,-1): # т.к. трёхзначное число
 #     else:
 #         result = str(s2) + str(s1)
 #     if result == '7434':
+#         print(n)
+#         break
+
+
+
+'''var8'''
+# def convert_to(n, a):
+#     res = ''
+#     while n > 0:
+#         res = str(n%a) + res
+#         n //= a
+#     return res
+# def R(n):
+#     r = convert_to(n, 4)
+#     if n % 4 == 0:
+#         r += r[-2:]
+#     else:
+#         r += convert_to((n % 4) * 2, 4)
+#     return int(r,4)
+# for n in range(1,1000):
+#     if R(n) > 1088:
+#         print(n)
+#         break
+
+'''var7'''
+# def z(n,m):
+#     b = ''
+#     while n > 0:
+#         b = str(n % m) + b
+#         n //= m
+#     return b
+#
+# def f(N):
+#     b = z(N,4)
+#     if N % 4 == 0:
+#         b += b[-2:]
+#     else:
+#         b += z((N % 4) * 2, 4)
+#     return int(b,4)
+#
+# print(min(N for N in range(1,1000) if f(N) >= 1025))
+# for n in range(1,1000):
+#     if f(n) >= 1025:
+#         print(n)
+#         break
+
+'''var5'''
+# def convert_to(n,k):
+#     res = ''
+#     while n > 0:
+#         res += str(n%k)
+#         n//=k
+#     return res[::-1]
+# def R(n):
+#     r = convert_to(n, 4)
+#     if n % 4 == 0:
+#         r += r[-2:]
+#     else:
+#         r += convert_to((n % 4) * 2, 4)
+#     return int(r,4)
+# for n in range(10000,-1,-1):
+#     if R(n) < 261:
+#         print(n)
+#         break
+
+
+'''var3'''
+# def R(n):
+#     r = bin(n)[2:]
+#     if n % 4 == 0:
+#         r += r
+#     else:
+#         r += r[::-1]
+#     return int(r,2)
+# for n in range(1,1000):
+#     if R(n) >= 544:
+#         print(n)
+#         break
+
+'''var2'''
+# def R(n):
+#     r = bin(n)[2:]
+#     if n % 2 == 0:
+#         r = r.replace('1', '11')
+#     else:
+#         r = r.replace('0','00')
+#     return int(r,2)
+# for n in range(1, 10000):
+#     r = R(n)
+#     if r < 70 and r != n:
+#         print(n)
+
+'''var1'''
+# def R(n):
+#     r = bin(n)[2:]
+#     if n % 2 == 0:
+#         r = r.replace('1','11')
+#     else:
+#         r = r.replace('0','00')
+#     return int(r,2)
+# print(R(4) == 12 and R(5) == 9)
+# for n in range(1,1000):
+#     if R(n) > 70:
 #         print(n)
 #         break
 

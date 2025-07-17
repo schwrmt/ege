@@ -1,5 +1,11 @@
-
-
+'''EGKR190425'''
+# def F(start,end):
+#     if start > end or start == 56:
+#         return 0
+#     if start == end:
+#         return 1
+#     return F(start+3, end) + F(start+7,end) + F(start*3,end)
+# print(F(12,40) * F(40,72) * F(72,89))
 
 
 # ДЗ 6

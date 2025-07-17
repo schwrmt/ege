@@ -13,6 +13,37 @@
 #         return n+ F(n-2)
 # print(F(2126)-F(2122))
 
+'''EGKR19.04.25'''
+# import sys
+# sys.setrecursionlimit(10000)
+# def F(n):
+#     if n < 20:
+#         return n
+#     if n >= 20:
+#         return (n-6) * F(n-7)
+# print((F(47872) - 290 * F(47865)) / F(47858))
+
+'''var1'''
+# import sys
+# sys.setrecursionlimit(4000)
+# def F(n):
+#     if n == 1:
+#         return 1
+#     if n > 1:
+#         return n * F(n-1)
+# print((F(2025)//25 + F(2024))/F(2023))
+
+'''var16'''
+@lru_cache
+def F(n):
+    if n == 1:
+        return 1
+    if n == 2:
+        return 2
+    return n * (n-1) + F(n-1) + F(n-2)
+for n in range(1,2000):
+    F(n)
+print(F(2023) - F(2021) - 2 * F(2020) - F(2019))
 
 # 15 вариант
 # def F(n):

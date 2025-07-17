@@ -1,6 +1,8 @@
-# s = input('Введите строку с цифрами: ')
-# s_new = ''
-# for i in s:
-#     if i not in '1234567890':
-#         s_new += i
-# print(s_new)
+# import os
+#
+# base_folder = ""
+# for i in range(1,27+1):
+#     folder_name = os.path.join(base_folder, f'{i}')
+#     os.makedirs(folder_name, exist_ok=False)
+#     file_path = os.path.join(folder_name, f'{i}.py')
+#     open(file_path, 'w')

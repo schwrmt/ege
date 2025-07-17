@@ -1,25 +1,278 @@
-f = open('896732.txt').read().strip()
-f = f.replace('XZZY','XZZ ZZY')
-f = f.split()
-print(len(max(f, key=len)))
+#
+#
+# f = open('new_24').read().strip()
+# max_len = 0
+# s1 = ''
+# for i in range(len(f)):
+#     for j in range(i+max_len, len(f)):
+#         s = f[i:j+1]
+#         if s[0] != '2' or s.count('2025') > 60 :
+#             break
+#         if len(s) == 4 and s[:4] != '2025':
+#             break
+#         if s.count('Y') >= 120 and s.count('2025') == 60:
+#             if len(s) > max_len:
+#                 max_len = max(max_len, len(s))
+#                 s1 = s
+# print(max_len, s1)
 
-f = open('896732.txt').read().strip()
-m = 0
-for i in range(len(f)):
-    for j in range(i + m, len(f)):
-        s = f[i:j+1]
-        if 'XZZY' not in s:
-            m = max(m, len(s))
-        else:
-            break
-print(m)
+#for min
+f = open('new_24').read().strip()
+f = f.split('2025')
+min_len = 100000000000
+s_min = ''
+for i in range(1, len(f)-59):
+    s = f[i:i+59]
+    s = '2025' + '2025'.join(s) + '2025'
+    if s.count('Y') < 120:
+        continue
+    if min_len > len(s):
+        min_len = len(s)
+        s_min = s
+print(min_len, s_min.count('Y'), s_min.count('2025'))
+#for max
+f = open('new_24').read().strip()
+f = f.split('2025')
+max_len = 0
+s_max = ''
+for i in range(1, len(f)-60):
+    s = f[i:i+60]
+    s = '2025' + '2025'.join(s)
+    if s.count('Y') < 120:
+        continue
+    if max_len < len(s) + 3:
+        max_len = len(s) + 3
+        s_max = s
+print(max_len, s_max.count('Y'), s_max.count('2025'))
+
+# s = open('new_24').readline()
+# from re import finditer
+# reg = r'2025[A-Z1-9]+'
+# reg = rf'(?=({reg}))'
+# res = [x.group(1) for x in finditer(reg, s)]
+# mx = max(res, key=lambda x: (x.count('2025') == 60 and x.count('Y') >= 120, len(x)))
+# print(len(mx), mx.count('2025'))
+'''23206'''
+# f = open('24_23206.txt').read().strip()
+# for d in '02468':
+#     f = f.replace(d, '2')
+# max_len = 0
+# s1 = ''
+# for i in range(len(f)):
+#     for j in range(i+max_len, len(f)):
+#         s = f[i:j+1]
+#         if s[0] != '2' or s.count('2') > 1 or s.count('S') > 35:
+#             break
+#         if s.count('S') == 35:
+#             if len(s) > max_len:
+#                 max_len = max(max_len, len(s))
+#                 s1 = s
+# print(max_len)
+# OR
+# f = open('24_23206.txt').read().strip()
+# for d in '02468':
+#     f = f.replace(d, '2')
+# f = f.split('S')
+# max_len = 0
+# s1 = ''
+# for i in range(len(f)):
+#     s = f[i:i+36]
+#     s = 'S'.join(s)
+#     if s.count('2') > 1 or f[i].count('2') == 0:
+#         continue
+#     if max_len < len(s) - s.index('2'):
+#         max_len = len(s) - s.index('2')
+#         s1 = s[s.index('2'):]
+# print(max_len, s1)
+# OR
+# s = open('24_23206.txt').readline()
+# from re import *
+# for i in '2468':
+#     s = s.replace(i, '0')
+# reg = r'[02468]([13579A-RT-Z]*S){35}[13579A-RT-Z]*'
+# reg = rf'(?=({reg}))'
+# res = [x.group(1) for x in finditer(reg, s)]
+# mx = max(res, key=lambda x: (x.count('S') == 35, len(x)))
+# print(len(mx))
+
+'''dv'''
+# f = open('var1.txt').read().strip()
+# for d in '0123456789':
+#     f = f.replace(d, '1')
+# max_len = 0
+# for i in range(len(f)):
+#     for j in range(i+max_len, len(f)):
+#         s = f[i:j+1]
+#         if s[0] != 'D' and s.count('D') > 1 and s.count('1') > 70:
+#             break
+#         if s.count('1') == 70:
+#             max_len = max(max_len, len(s))
+# print(max_len)
+
+'''var8'''
+# f = open('var8.txt').read().strip()
+# max_len = 0
+# f = f.split('A')
+# for i in range(len(f)-700):
+#     s = f[i:i+701]
+#     s = 'A'.join(s)
+#     if s.count('E') == 0:
+#         max_len = max(max_len, len(s))
+# print(max_len)
 
 
 
+'''var1'''
+# import re
+# f = open('var1.txt').read().strip()
+# reg_number = '([1-9][0-9]*|0)'
+# reg_arifm = f'{reg_number}([-+]{reg_number})+'
+# m = max([x.group() for x in re.finditer(reg_arifm, f)], key=len)
+# print(len(m))
 
+# f = open('var1.txt').read().strip()
+# f = f.replace('+', '-')
+# max_len = 0
+# for i in range(len(f)):
+#     for j in range(i+max_len, len(f)):
+#         s = f[i:j+1]
+#         if s[0] == '-':
+#             break
+#         if s.count('--'):
+#             break
+#         if s[-1] == '-':
+#             continue
+#         numbers = s.split('-')
+#         for n in numbers:
+#             if n[0] == '0' and n != '0':
+#                 break
+#         else:
+#             max_len = max(len(s), max_len)
+#             continue
+#         break
+# print(max_len)
 
+'''var2'''
+# f = open('var2.txt').read()
+# f = f.replace('+', '-')
+# f = f.split('--')
+# f = sorted(f, key=len, reverse=True)
+# for i in range(10):
+#     print(len(f[i]), f[i])
+#
+# import re
+# f = open('var2.txt').read().strip()
+# number = r'([1-9][0-9]*|0)'
+# reg = fr'{number}([-+]{number})+'
+# m = max([x.group() for x in re.finditer(reg, f)], key=len )
+# print(len(m), m)
+#
+# f = open('var2.txt').read()
+# f = f.replace('+', '-')
+# max_len = 0
+# for i in range(len(f)):
+#     for j in range(i+max_len, len(f)):
+#         s = f[i:j+1]
+#         if s[-1] == '-':
+#             continue
+#         if s[0] == '-' or s.count('--'):
+#             break
+#         flag_wrong_numbers = False
+#         for number in s.split('-'):
+#             if number[0] == '0' and number != '0':
+#                 flag_wrong_numbers = True
+#         if flag_wrong_numbers:
+#             break
+#         if max_len < len(s):
+#             max_len = len(s)
+#             print(s)
+# print(max_len)
 
+'''var2 if expression should be 0'''
+# import re
+# f = open('var2.txt').read().strip()
+# number = r'([1-9][0-9]*|0)'
+# reg = fr'{number}([-+]{number})+'
+# reg = f'(?=({reg}))'
+# corrects = ([x.group(1) for x in re.finditer(reg, f)])
+# corrects = sorted(corrects, reverse=True, key=len)
+# print(corrects[:5])
+# for c in corrects:
+#     if eval(c) == 0:
+#         print(len(c), c)
+#         break
+#
+# f = open('var2.txt').read()
+# max_len = 0
+# for i in range(len(f)):
+#     for j in range(i+max_len, len(f)):
+#         s = f[i:j+1]
+#         if s[-1] == '-' or s[-1] == '+':
+#             continue
+#         if s[0] == '-' or s[0] == '+' or s.count('--') or s.count('++') or s.count('-+') or s.count('+-'):
+#             break
+#         flag_wrong_numbers = False
+#         for number in s.replace('+','-').split('-'):
+#             if number[0] == '0' and number != '0':
+#                 flag_wrong_numbers = True
+#         if flag_wrong_numbers:
+#             break
+#         if eval(s) == 0:
+#             if max_len < len(s):
+#                 max_len = len(s)
+# print(max_len)
 
+'''var3'''
+# import re
+# f = open('var3.txt').read().strip()
+# number = r'([1-9][0-9]*|0)'
+# reg = fr'{number}([-*]{number})+'
+# m = max([x.group() for x in re.finditer(reg, f)], key=len )
+# print(len(m), m)
+#
+# f = open('var3.txt').read()
+# f = f.replace('*', '-')
+# max_len = 0
+# for i in range(len(f)):
+#     for j in range(i+max_len, len(f)):
+#         s = f[i:j+1]
+#         if s[-1] == '-':
+#             continue
+#         if s[0] == '-' or s.count('--'):
+#             break
+#         flag_wrong_numbers = False
+#         for number in s.split('-'):
+#             if number[0] == '0' and number != '0':
+#                 flag_wrong_numbers = True
+#         if flag_wrong_numbers:
+#             break
+#         if max_len < len(s):
+#             max_len = len(s)
+# print(max_len)
+
+'''var5'''
+# f = open('var5.txt').read()
+# f = f.split('A')
+# min_len = 100000000
+# for i in range(1, len(f)-2023):
+#     s = f[i:i+2023]
+#     lens = [len(x) for x in s]
+#     if min_len > sum(lens) + 2024:
+#         min_len = sum(lens) + 2024
+# print(min_len)
+
+'''var6'''
+# f = open('var6.txt').read()
+# max_len = 0
+# f = f.split('A')
+# for i in range(len(f)):
+#     s = f[i:i+351]
+#     lens = [len(x) for x in s]
+#     max_len = max(max_len, sum(lens) + 350)
+#     # s = 'A'.join(s)
+#     # print(s.count('A'))
+#     # max_len = max(max_len, len(s))
+# print(max_len)
 
 '''demo'''
 # import re
@@ -244,7 +497,6 @@ print(m)
 # print(max_len)
 
 '''7E659E'''
-# долгий способ
 # f = open('7E659E.txt').read().strip()
 # f = f.replace('X', ' ')
 # f = f.split(' ') # Важно именно пробел
@@ -253,11 +505,22 @@ print(m)
 #     s = 'X'.join(f[i: i + 141])
 #     max_len = max(len(s), max_len)
 # print(max_len)
+#
+# f = open('7E659E.txt').readline().strip()
+# max_len = 0
+# for i in range(len(f)):
+#     for j in range(i+max_len, len(f)):
+#         s = f[i:j+1]
+#         if s.count('X') == 140:
+#             max_len = max(max_len, len(s))
+#         if s.count('X') > 140:
+#             break
+# print(max_len)
 
 '''F04010'''
 # f = open('F04010.txt').read().strip()
 # f = f.replace('Y', ' ')
-# f = f.split(' ') # Важно именно пробел
+# f = f.split(' ')
 # min_len = 20000
 # for i in range(len(f) - 260):
 #     s = 'Y'.join(f[i: i + 261])
@@ -273,3 +536,48 @@ print(m)
 #     k = sum(lens[i:i + 101]) + 200 + 2
 #     mx = max(mx, k)
 # print(mx)
+#
+# f = open('3380E0.txt').read().strip()
+# max_len = 0
+# for i in range(len(f)):
+#     for j in range(i + max_len, len(f)):
+#         s = f[i:j+1]
+#         if s.count('AB') == 100:
+#             max_len = max(max_len, len(s))
+#         elif s.count('AB') > 100:
+#             break
+# print(max_len)
+
+
+'''ege2024rezervGrob(=0)'''
+# import re
+# f = open('EGE2024grob.txt').read().strip()
+# number = r'([1-9][0-9]*|0)'
+# reg = fr'{number}([+*]{number})+'
+# reg = fr'(?=({reg}))'
+# m = sorted([x.group(1) for x in re.finditer(reg, f)], key=len, reverse=True )
+# for i in m:
+#     if eval(i) == 0:
+#         print(len(i), i)
+#         break
+#
+# f = open('EGE2024grob.txt').read().strip()
+# max_len = 0
+# for expression in f:
+#     for i in range(len(expression)):
+#         for j in range(i + max_len, len(expression)):
+#             correct_numbers = True
+#             s = expression[i:j + 1]
+#             if s[0] == '*' or '**' in s or '+*' in s or '++' in s or '*+':
+#                 break
+#             for number in s.split('*'):
+#                 if len(number) != 0 and number != '0' and number[0] == '0':
+#                     correct_numbers = False
+#                     break
+#             else:
+#                 if s[-1] != "*" and eval(s) == 0:
+#                     max_len = max(len(s), max_len)
+#                     print(s)
+#             if not correct_numbers:
+#                 break
+# print(max_len)
